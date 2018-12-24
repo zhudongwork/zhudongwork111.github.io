@@ -670,7 +670,9 @@
 
 
   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+   
+  
+  <script src="/js/src/Valine.min.js"></script>
   
   <script type="text/javascript">
     var GUEST = ['nick','mail','link'];
@@ -680,12 +682,12 @@
     });
     new Valine({
         el: '#comments' ,
-        verify: false,
+        verify: true,
         notify: false,
         appId: '871SDK24RlG6nqnDfJLIp9s6-gzGzoHsz',
         appKey: 'nDeaL1QGadrgvHQA9b0o5LEH',
         placeholder: '有什么想说的...',
-        avatar:'mm',
+        avatar:'retro',
         guest_info:guest,
         pageSize:'10' || 10,
     });
