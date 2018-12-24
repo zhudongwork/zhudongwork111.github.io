@@ -615,7 +615,7 @@
   
   <script type="text/javascript">
     var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail,link';
+    var guest = 'nick';
     guest = guest.split(',').filter(item=>{
       return GUEST.indexOf(item)>-1;
     });
@@ -630,6 +630,12 @@
         guest_info:guest,
         pageSize:'10' || 10,
     });
+    var infoEle = document.querySelector('#comments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+      infoEle.childNodes.forEach(function(item) {
+        item.parentNode.removeChild(item);
+      });
+    }
   </script>
 
 
