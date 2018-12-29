@@ -39,7 +39,7 @@
 		<script src="./js/stats.min.js"></script>
 		<script src="./js/OrbitControls.js"></script>
 		<script src="./js/dat.gui.min.js"></script>
-		<script src="./js/WebVR.js"></script>
+
 
 		<script id="fragmentShaderFirstPass" type="x-shader/x-fragment">
 			varying vec3 worldSpaceCoords;
@@ -246,9 +246,9 @@
 
 
 				//Load the 2D texture containing the Z slices.
-				cubeTextures['bonsai'] = THREE.ImageUtils.loadTexture('bonsai.raw.png' );
-				cubeTextures['teapot'] = THREE.ImageUtils.loadTexture('teapot.raw.png');
-				cubeTextures['foot'] = THREE.ImageUtils.loadTexture('foot.raw.png');
+				cubeTextures['bonsai'] = THREE.ImageUtils.loadTexture('./data/bonsai.raw.png' );
+				cubeTextures['teapot'] = THREE.ImageUtils.loadTexture('./data/teapot.raw.png');
+				cubeTextures['foot'] = THREE.ImageUtils.loadTexture('./data/foot.raw.png');
 
 
 				//Don't let it generate mipmaps to save memory and apply linear filtering to prevent use of LOD.
@@ -309,7 +309,7 @@
 
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				container.appendChild( renderer.domElement );
-                renderer.vr.enabled = true;
+               
 				stats = new Stats();
 				stats.domElement.style.position = 'absolute';
 				stats.domElement.style.top = '0px';
@@ -351,7 +351,7 @@
 				onWindowResize();
 
 				window.addEventListener( 'resize', onWindowResize, false );
-                document.body.appendChild( WEBVR.createButton( renderer ) );
+
 			}
 
 			function updateTextures(value)
@@ -411,7 +411,7 @@
 
 				//Render the second pass and perform the volume rendering.
 				renderer.render( sceneSecondPass, camera );
-                //renderer.vr.enabled = true;
+
 				materialSecondPass.uniforms.steps.value = guiControls.steps;
 				materialSecondPass.uniforms.alphaCorrection.value = guiControls.alphaCorrection;
 			}
